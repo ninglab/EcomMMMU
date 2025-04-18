@@ -70,9 +70,9 @@ def get_valid_response(task, response):
     return find_included_response(response, options)
 
 def vrf_img_num(entry):
-    if entry["task"] == 'prp':
+    if entry["task"] == 'product_relation_prediction':
         num_images = 2
-    elif entry["task"] in ['sr', 'ctr']:
+    elif entry["task"] in ['sequential_recommendation', 'click-through_predction']:
         num_images = len(json.loads(entry['input'])['purchase history'])
     else:
         num_images = 1

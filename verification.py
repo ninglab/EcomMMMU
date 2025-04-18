@@ -23,17 +23,20 @@ def verify_entry(model, processor, spl):
 
     downstrem_data = []
             
-    for entry in tqdm(data):
+    for _, entry in data.iterrows():
+        entry = entry.to_dict()
         prompt = processor.apply_chat_template(get_vrf_chat(entry), add_generation_prompt=True)
 
         cand_img_ids = []
         for img_id in range(IMG_NUM):
             images = [normalize_img(Image.open(requests.get(item_img[img_id], stream=True).raw)) for item_img in entry['images']]
             inputs = processor(images=images, text=prompt, return_tensors="pt").to(device=device, dtype=torch.bfloat16)
-            outputs = model.generate(**inputs, max_new_tokens=16)
-            response = processor.batch_decode(outputs, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-
-            label = get_valid_response("verfication", response)
+            try:
+                outputs = model.generate(**inputs, max_new_tokens=16)
+                response = processor.batch_decode(outputs, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+                label = get_valid_response("verfication", response)
+            except:
+                label = ''
 
             if label == 'A':
                 cand_img_ids.append(img_id)
@@ -72,7 +75,7 @@ if __name__ == "__main__":
         torch_dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
     ).to(device)
-    processor = LlavaProcessor.from_pretrained(model_id, dtype=torch.bfloat16, device=device, vision_feature_select_strategy='default')
+    processor = LlavaProcessor.from_pretrained(model_id, dtype=torch.bfloat16, device=device)
     model.vision_tower.to(dtype=torch.bfloat16, device=device)
 
     verify_entry(model, processor, 'train')

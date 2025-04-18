@@ -76,7 +76,7 @@ def train():
         device_map=device_map,
     )
     model, tokenizer, processor, config = loader.load()
-    processor.vision_feature_select_strategy='default'
+    # processor.vision_feature_select_strategy='default'
     tokenizer.model_max_length = training_args.model_max_length
 
     if training_args.gradient_checkpointing:
