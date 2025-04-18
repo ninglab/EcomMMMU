@@ -20,4 +20,61 @@ We also propose a data-centric multi-image e-commerce framework MiEF to facilita
 The dataset is available in [Google Drive](https://drive.google.com/file/d/1WmiGoAlEUJxezVMqwz6fJHSIx-175Q8r/view?usp=sharing).
 EcomMMMU comprises 8 tasks centering on 4 essential e-commerce capabilities, including
 shopping question perception, user behavior alignment, query-product perception, and shopping concept understanding
-MMECInstruct is split into training sets, validation sets, and test sets. The visual_critical labels are involved for test samples.
+EcomMMMU is split into training sets, validation sets, and test sets. The visual_critical labels are involved for test samples.
+
+
+## Pseudo Labeling
+To generate pseudo-labels for product images, run <code>python pseudo_labeling.py</code>.
+ <!-- By default we use [ec-llava](https://huggingface.co/meta-llama/ec-llava) as the labeling model. -->
+
+The generated pseudo-labeled data will be stored in <code>data/verification</code> for training the instance-level image verifier.
+
+## Verifier Finetuning
+
+To finetune the verifier, run <code>./finetune.sh $stage</code>.
+
+<code>$stage</code> indicates the finetuning stage and should be set as <code>verification</code> in this procedure.
+
+Example:
+```
+./finetune.sh verification
+```
+
+The finetuning code is derived from [lmms-finetune](https://github.com/zjysteven/lmms-finetune).
+
+## Instance-Level Image Verification
+To verify the contribution of product images, run <code>python verification.py</code>.
+
+The generated contribution label data for conducting downstream task will be stored in <code>data/downstream</code> for finetuning and inference the downstream multimodal large language models.
+
+
+## Downstream Model Finetuning
+
+To finetune the model to conduct downstream tasks, run <code>./finetune.sh $stage</code>.
+
+<code>$stage</code> indicates the finetuning stage and should be set as <code>downstream</code> in this procedure.
+
+Example:
+```
+./finetune.sh downstream
+```
+
+##  Task Inference
+To conduct inference, run <code>python inference.py --task $task</code>.
+
+<code>$task</code> specifies the task to be tested.
+
+Example:
+```
+python inference.py --task answerability_prediction
+```
+
+## Evaluation
+To evaluate the results on specific task, run <code>python evaluate.py --task $task</code>.
+
+<code>$task</code> is the task on which to conduct the evaluation.
+
+Example:
+```
+python evaluate.py --task answerability_prediction
+```
