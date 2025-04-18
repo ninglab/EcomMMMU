@@ -10,8 +10,7 @@ We also propose a data-centric multi-image e-commerce framework MiEF to facilita
 
 * python = 3.10.14
 * torch = 2.4.1
-* transformers = 4.46.0
-* fire = 0.7.0
+* transformers = 4.49.0
 * scikit-learn = 1.5.2
 * datasets = 3.0.1
 
