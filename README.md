@@ -1,6 +1,6 @@
 # EcomMMMU and SUMEI
 
-The folder contains the code for Towards Robust Multimodal E-Commerce Models: Strategic Utilization of Visuals from EcomMMMU Dataset.
+The folder contains the code for EcomMMMU: Strategic Utilization of Visuals for Robust Multimodal E-Commerce Models.
 
 ## Introduction
 We introduce [EcomMMMU](https://drive.google.com/file/d/1WmiGoAlEUJxezVMqwz6fJHSIx-175Q8r/view?usp=sharing), the first large-scale multimodal multitask understanding dataset for e-commerce to benchmark four essential capabilities. 
@@ -58,7 +58,7 @@ Example:
 ./finetune.sh downstream
 ```
 
-##  Task Inference
+## Task Inference
 To conduct inference, run <code>python inference.py --task $task</code>.
 
 <code>$task</code> specifies the task to be tested.
