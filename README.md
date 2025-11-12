@@ -16,7 +16,7 @@ We also propose a method, SUMEI, to facilitate the model's utilization of visual
 
 ## EcomMMMU Dataset
 
-The dataset is available in [Google Drive](https://drive.google.com/file/d/1WmiGoAlEUJxezVMqwz6fJHSIx-175Q8r/view?usp=sharing).
+The dataset is available in [Hugging Face](https://huggingface.co/datasets/NingLab/EcomMMMU).
 EcomMMMU comprises 8 tasks centering on 4 essential e-commerce capabilities, including
 shopping question perception, user behavior alignment, query-product perception, and shopping concept understanding
 EcomMMMU is split into training sets, validation sets, and test sets. The visual critical labels are involved for test samples.
