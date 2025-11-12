@@ -3,7 +3,7 @@
 The folder contains the code for EcomMMMU: Strategic Utilization of Visuals for Robust Multimodal E-Commerce Models.
 
 ## Introduction
-We introduce [EcomMMMU](https://drive.google.com/file/d/1WmiGoAlEUJxezVMqwz6fJHSIx-175Q8r/view?usp=sharing), the first large-scale multimodal multitask understanding dataset for e-commerce to benchmark four essential capabilities. 
+We introduce [EcomMMMU](https://huggingface.co/datasets/NingLab/EcomMMMU), the first large-scale multimodal multitask understanding dataset for e-commerce to benchmark four essential capabilities. 
 We also propose a method, SUMEI, to facilitate the model's utilization of visual content and enhance its performance.
 
 ## Requirements
@@ -19,7 +19,7 @@ We also propose a method, SUMEI, to facilitate the model's utilization of visual
 The dataset is available in [Google Drive](https://drive.google.com/file/d/1WmiGoAlEUJxezVMqwz6fJHSIx-175Q8r/view?usp=sharing).
 EcomMMMU comprises 8 tasks centering on 4 essential e-commerce capabilities, including
 shopping question perception, user behavior alignment, query-product perception, and shopping concept understanding
-EcomMMMU is split into training sets, validation sets, and test sets. The visual_critical labels are involved for test samples.
+EcomMMMU is split into training sets, validation sets, and test sets. The visual critical labels are involved for test samples.
 
 
 ## Visual Utility Assessment
