@@ -77,3 +77,14 @@ Example:
 ```
 python evaluate.py --task answerability_prediction
 ```
+
+## Citation
+```bibtex
+@inproceedings{ling2025ecommmmu,
+  title={EcomMMMU: Strategic Utilization of Visuals for Robust Multimodal E-commerce Models},
+  author={Ling, Xinyi and Du, Hanwen and Zhu, Zhihui and Ning, Xia},
+  booktitle={Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics},
+  pages={769--790},
+  year={2025}
+}
+```
